@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PyGame-AI-Dodger", "PyGame-AI-Dodger.pyproj", "{D9D6095F-CB3A-4372-9795-695783C27ADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9D6095F-CB3A-4372-9795-695783C27ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D6095F-CB3A-4372-9795-695783C27ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {493FC80A-BD75-4BB7-BEB1-A2DC5BDEDB66}
+	EndGlobalSection
+EndGlobal
