@@ -1,6 +1,17 @@
 # Example file showing a circle moving on screen
 import pygame
 
+def check_collision(player_pos, player_radius, screen_x, screen_y):
+    if player_pos.y - player_radius < 0:
+        player_pos.y = player_radius
+    if player_pos.y + player_radius > screen_y:
+        player_pos.y = screen_y - player_radius
+    if player_pos.x - player_radius < 0:
+        player_pos.x = player_radius
+    if player_pos.x + player_radius > screen_x:
+        player_pos.x = screen_x - player_radius
+    return player_pos
+
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
@@ -9,6 +20,7 @@ running = True
 dt = 0
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+player_radius = 40
 
 while running:
     # poll for events
@@ -20,19 +32,19 @@ while running:
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("black")
 
-    pygame.draw.circle(screen, "red", player_pos, 40)
+    pygame.draw.circle(screen, "red", player_pos, player_radius)
 
     keys = pygame.key.get_pressed()
-    if (keys[pygame.K_w] or keys[pygame.K_UP]) and player_pos.y - 40 > 0:
+    if (keys[pygame.K_w] or keys[pygame.K_UP]) and player_pos.y - player_radius > 0:
         player_pos.y -= 300 * dt
-    if (keys[pygame.K_s] or keys[pygame.K_DOWN]) and player_pos.y + 40 < screen.get_height():
+    if (keys[pygame.K_s] or keys[pygame.K_DOWN]) and player_pos.y + player_radius < screen.get_height():
         player_pos.y += 300 * dt
-    if (keys[pygame.K_a] or keys[pygame.K_LEFT])  and player_pos.x - 40 > 0:
+    if (keys[pygame.K_a] or keys[pygame.K_LEFT])  and player_pos.x - player_radius > 0:
         player_pos.x -= 300 * dt
-    if (keys[pygame.K_d] or keys[pygame.K_RIGHT]) and player_pos.x + 40 < screen.get_width():
+    if (keys[pygame.K_d] or keys[pygame.K_RIGHT]) and player_pos.x + player_radius < screen.get_width():
         player_pos.x += 300 * dt
 
-    
+    player_pos = check_collision(player_pos, player_radius, screen.get_width(), screen.get_height())
 
     # flip() the display to put your work on screen
     pygame.display.flip()
